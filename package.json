@@ -4,5 +4,8 @@
   "description": "Meadowlark is a travel services web app. It exposes REST services in addition to serving a functional website.",
   "main": "app.js",
   "author": "Ayoub Nejjari",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
