@@ -1,14 +1,9 @@
 var express = require('express');
+var fort = require('./lib/paras.js');
 var app = express();
 
 
 /* Hardcoded data  */
-var fortunes = [
-	'Lorem Ipsum bla bla bla',
-	'This is a para',
-	'Another pragrapgh and that is enough',
-	'Ma name is EssoLojo'
-];
 
 /* Hardcoded data  */
 
@@ -21,7 +16,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public')); // static content is in the directory 'public'
 app.get('/', function(req, res){
-	res.render('test', {data: fortunes});
+	res.render('test', {data: fort.getF()});
 });
 
 
