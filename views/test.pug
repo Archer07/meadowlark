@@ -6,7 +6,25 @@ html(lang="en")
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='author', content='Ayoub Nejjari')
     title Test
+    if showTests
+      link(rel='stylesheet' href='/vendor/mocha.css')
+    script(src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
   body
     h1 Hardcoded data
     h3 #{data}
+    
+    
+    if showTests
+      #mocha
+      script(src='/vendor/mocha.js')
+      script(src='/vendor/chai.js')
+      script
+        mocha.ui('tdd');
+        var assert = chai.assert;
+      script(src='/qa/tests-global.js')
+      if pageTestScript
+        script(src='#{pageTestScript}')
+      script
+        mocha.run();
+    
       
