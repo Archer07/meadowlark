@@ -20,12 +20,20 @@ app.use(function(req, res, next){
 });
 
 
-console.log(app.get('env'));
+
+
 app.use(express.static(__dirname + '/public')); // static content is in the directory 'public'
+
 app.get('/', function(req, res){
 	res.render('test', {data: fort.getF()});
 });
 
+app.get('/about', function(req, res, next) {
+	res.render('about', {
+		fortune: fort.getF(),
+		pageTestScript: '/qa/about-test.js'
+	});
+});
 
 // 404 custom response middleware
 
