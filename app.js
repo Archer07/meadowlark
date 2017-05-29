@@ -13,7 +13,14 @@ app.set('port', process.env.PORT || 3000);
 
 
 // to serve static files
+// middleware for showing tests
+app.use(function(req, res, next){
+	res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
+	next();
+});
 
+
+console.log(app.get('env'));
 app.use(express.static(__dirname + '/public')); // static content is in the directory 'public'
 app.get('/', function(req, res){
 	res.render('test', {data: fort.getF()});
