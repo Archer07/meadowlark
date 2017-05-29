@@ -12,5 +12,9 @@
   "scripts": {
     "start": "node app.js",
     "watch": "nodemon app.js"
+  },
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "mocha": "^3.4.2"
   }
 }
