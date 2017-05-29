@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='author', content='Ayoub Nejjari')
+    title Todois
+    if showTests
+      link(rel='stylesheet' href='/vendor/mocha.css')
+    script(src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
+  body
+    h1 Hood River Tour
+    a.requestGroupRate(href='/tours/request-group-rate') Request Group Rate
+    
+    
+    if showTests
+      #mocha
+      script(src='/vendor/mocha.js')
+      script(src='/vendor/chai.js')
+      script(src='/qa/test-test.js')
+      script(src='/qa/tests-global.js')
+      if pageTestScript
+        script(src='#{pageTestScript}')
+      script(src='/qa/mocha-run.js')
+    
+      

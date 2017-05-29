@@ -8,13 +8,37 @@ suite('Cross-page Testing', function(){
 	setup(function(){
 		browser = new Browser();
 	});
-	
-	// test for case when visiting from hood river tour page
-	test('Visiting a group rate quote from the hood river tour page' + ' should populate the referrer field');
-	
-	// test for case when visiting from oreagon coast tour page
-	test();
 
-	// test for case when visiting directly 
-	test();
+	// test for case when visiting from hood river tour page
+	test('Visiting a group rate quote from the hood river tour page' + ' should populate the referrer field', function(done) {
+		var referrer = 'http://localhost:3000/tours/hood-river';
+		browser.visit(referrer, function() {
+			browser.clickLink('.requestGroupRate', function(){
+				assert(browser.field('referrer').value === referrer);
+				done();
+			});
+		});
+	});
+
+	// test for case when visiting from oregon coast tour page
+	test('Visiting a group rate quote from the oregon coast tour page' + ' should populate the referrer field', function(done) {
+		var referrer = 'http://localhost:3000/tours/oregon-coast';
+		browser.visit(referrer, function() {
+			browser.clickLink('.requestGroupRate', function(){
+				assert(browser.field('referrer').value === referrer);
+				done();
+			});
+		});
+	});
+
+	// test for case when visiting directly
+	test('Visiting a group rate page directly shoud result ' + 'in an empty referrer field', function(done) {
+		  browser.visit('http://localhost:3000/tours/request-group-rate', function() {
+				assert(browser.field('referrer').value === '');
+				done();
+		});
+	});
+
+
+
 });
